@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+    db:
+        image: mysql:5.7.30
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'users_db'
+            MYSQL_ROOT_PASSWORD: '1234'
+        ports:
+            # <Port exposed> : < MySQL Port running inside container>
+            - '9906:3306'
