@@ -1,8 +1,8 @@
 package users
 
 import (
+	"github.com/marcelo-cardozo/bookstore_users-api/utils/date_utils"
 	"github.com/marcelo-cardozo/bookstore_users-api/utils/errors"
-	"time"
 )
 
 var (
@@ -23,7 +23,7 @@ func (user *User) Get() *errors.RestErr {
 }
 
 func (user *User) Save() *errors.RestErr {
-	user.DateCreated = time.Now().String()
+	user.DateCreated = date_utils.GetNowString()
 
 	Db[user.Id] = user
 	return nil
